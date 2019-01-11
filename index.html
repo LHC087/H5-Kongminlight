@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>中秋H5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="image/sy/sy01.png" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link href="css/Swiper.4.3.0.css.swiper.min.css" rel="stylesheet">
+    <style>
+        .loader {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin: -0.2em 0 0 -0.2em;
+            text-indent: -9999em;
+            border-top: 0.5em solid rgba(56, 213, 244, 0.8);
+            border-right: 0.5em solid rgba(56, 213, 244, 0.8);
+            border-bottom: 0.5em solid rgba(56, 213, 244, 0.8);
+            border-left: 0.5em solid #0a6dfc;
+            -moz-transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -moz-animation: loader 1000ms infinite linear;
+            -webkit-animation: loader 1000ms infinite linear;
+            animation: loader 1000ms infinite linear;
+            -moz-transition: all 500ms ease;
+            -o-transition: all 500ms ease;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .loader,
+        .loader:after {
+            position: relative;
+            width: 10.5em;
+            left: -8.5px;
+            top: -9px;
+            height: 10.5em;
+            border-radius: 50%;
+        }
+
+        .curtain {
+            position: fixed;
+            width: 10em;
+            height: 10em;
+            top: 50%;
+            left: 50%;
+            margin-left: -5em;
+            /* width的一半的相反数 */
+            margin-top: -5em;
+            /* height的一半的相反数 */
+            background-size: 92% 92%;
+            background-position: 6px 0px;
+            border-radius: 50%;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+            opacity: 0;
+            z-index: 0;
+        }
+
+        @-webkit-keyframes loader {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes loader {
+            0% {
+                -moz-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes loader {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .is-loading {
+            overflow: hidden;
+        }
+
+        .is-loading .curtain {
+            filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+            opacity: 1;
+            z-index: 99;
+        }
+
+        .is-loading .loader {
+            filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+            opacity: 1;
+        }
+    </style>
+    <!-- 预加载 -->
+    <script>
+        window.onload = function () {
+            $('body').removeClass('is-loading');
+        }
+        setTimeout(() => {
+            document.getElementById("curtain").style.display = "none";
+        }, 1500);
+
+        function playPause() {
+            var music = document.getElementById('music2');
+            var music_btn = document.getElementById('music_btn2');
+            if (music.paused) {
+                music.play();
+                music_btn.src = 'image/sy/musicon.png';
+            } else {
+                music.pause();
+                music_btn.src = 'image/sy/musicoff.png';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('music2');
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+            audioAutoPlay();
+        });
+    </script>
+</head>
+
+<body class="is-loading">
+    <div class="curtain" id='curtain'>
+        <img class="curtain" src="image/sy/logo.jpg" alt="">
+        <div class="loader">
+        </div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container swiper-container1">
+        <div class="swiper-wrapper">
+            <audio id="music2" controls="controls" hidden="hidden" autoplay="autoplay" loop="loop" src="image/music.mp3" loop="loop">你的浏览器不支持audio标签。</audio>
+            <a href="javascript:playPause();">
+                <img src="image/sy/musicon.png" id="music_btn2" class="music_btn2">
+            </a>
+            <!-- page1 -->
+            <div class="swiper-slide contain">
+                <img class="page_public page1_1img" src="image/page1/1.png">
+                <img class="page_public page1_2img slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/2.png">
+                <img class="page_public page1_3img slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/3.png">
+                <img class="page_public page1_4img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                    src="image/page1/4.png">
+                <img class="page_public page1_5img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page1/5.png">
+                <img class="page_public page1_6img fadeInRightBig ani" swiper-animate-effect="fadeInRightBig" swiper-animate-duration="5s"
+                    swiper-animate-delay="1s" src="image/page1/6.png">
+                <img class="page_public page1_7img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page1/7.png">
+                <img class="page_public page1_8img zoomIn ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="3s"
+                    src="image/page1/8.png">
+                <img class="page_public page1_9img zoomIn ani" swiper-animate-effect="zoomIn" swiper-animate-duration="2s" swiper-animate-delay="4s"
+                    src="image/page1/9.png">
+                <img class="page_public page1_10_1img bounceIn ani" swiper-animate-effect="bounceIn" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/10.png">
+                <img class="page_public page1_10_2img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="3s"
+                    src="image/page1/10.png">
+                <img class="page_public page1_10_3img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/10.png">
+                <img class="page_public page1_11img slideInRight ani" swiper-animate-effect="slideInRight" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/11.png">
+                <img class="page_public page1_12img slideInLeft ani" swiper-animate-effect="slideInLeft" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/12.png">
+                <img class="page_public page1_13img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page1/13.png">
+                <img class="page_public page1_14img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page1/14.png">
+                <img class="page_public page1_15img fadeInUp ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/15.png">
+                <img class="page_public page1_16img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/16.png">
+                <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page/4.png">
+                <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                    src="image/page/4.png">
+                <div>
+                    <a data-transition="slideup">
+                        <img src="image/sy/up.png" alt="" class="up2img">
+                    </a>
+                </div>
+            </div>
+            <!-- page2 -->
+            <div class="swiper-slide contain">
+                <div class="title p2_title zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">活动简介</div>
+                <div class="bg_title p2bg_title rota ani animated" swiper-animate-effect="rota" swiper-animate-duration="5s" swiper-animate-delay="3s"></div>
+                <div class="val zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="3s" swiper-animate-delay="2s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事用途。现代人放孔明灯多作为祈福之用。男女老少亲 孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事用途。现代人放孔明灯多作为祈福之用。男女老少亲孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事用途。现代人放孔明灯多作为祈福之用。男女老少亲
+                </div>
+                <img class="page_public page2_1img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                    src="image/page2/1.png">
+                <img class="page_public page2_2imgpu slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/2.png">
+                <img class="page_public page1_3img slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/3.png">
+                <img class="page_public page2_2img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page2/2.png">
+                <img class="page_public page2_3img fadeInUp ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page2/3.png">
+                <img class="page_public page2_4img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page2/4.png">
+                <img class="page_public page2_5img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                    src="image/page2/5.png">
+                <img class="page_public page2_10_1img bounceIn ani" swiper-animate-effect="bounceIn" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/10.png">
+                <img class="page_public page2_10_2img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/10.png">
+                <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page/4.png">
+                <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                    src="image/page/4.png">
+                <div>
+                    <a data-transition="slideup">
+                        <img src="image/sy/up.png" alt="" class="up2img">
+                    </a>
+                </div>
+            </div>
+
+            <!-- page3  width:690 height:2590 灯笼高度范围-1600px到500px,宽度范围：0到1400px-->
+            <div class="swiper-slide contain stop-swiping">
+                <div class="bg" id="bgtop">
+                    <img class="bgac ani" swiper-animate-effect="bgac" swiper-animate-duration="8s" swiper-animate-delay="0s" src="image/page/2.jpg"
+                        style=" position: relative; width:1500px;height:2668px;">
+                    <div class="go">
+                        <img id="pic1" class="lightac light1 ani" swiper-animate-effect="lightac" swiper-animate-duration="5s" swiper-animate-delay="0s"
+                            src="image/page3/3.png" style="width: 80px;height: 80px;">
+                    </div>
+                    <div class="go" style="position:relative;">
+                        <img class="light light2 lightbd ani infinite" swiper-animate-effect="lightbd" swiper-animate-duration="3s" swiper-animate-delay="0s" src="image/page3/4.png"
+                            style="width: 80px;height: 80px;">
+                    </div>
+                    <div class="go" style="position:relative;">
+                        <img class="light light3 lightbd ani infinite" swiper-animate-effect="lightbd" swiper-animate-duration="2s" swiper-animate-delay="1s" src="image/page3/6.png"
+                            style="width: 80px;height: 80px;">
+                    </div>
+                    <div class="go" style="position:relative;">
+                        <img class="light light4 lightbd ani infinite" swiper-animate-effect="lightbd" swiper-animate-duration="2s" swiper-animate-delay="2s" src="image/page3/8.png"
+                            style="width: 80px;height: 80px;">
+                    </div>
+                    <div class="go" style="position:relative;">
+                        <img class="light light5 lightbd ani infinite" swiper-animate-effect="lightbd" swiper-animate-duration="3s" swiper-animate-delay="3s" src="image/page3/10.png"
+                            style="width: 80px;height: 80px;">
+                    </div>
+                    <div class="go" style="position:relative;">
+                        <img class="light light6 lightbd ani infinite" swiper-animate-effect="lightbd" swiper-animate-duration="4s" swiper-animate-delay="4s" src="image/page3/11.png"
+                            style="width: 80px;height: 80px;">
+                    </div>
+                    <img class="lig page1_7img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page1/7.png">
+                    <img class="lig page1_7img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/7.png">
+                    <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                        src="image/page/4.png">
+                    <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                        src="image/page/4.png">
+                </div>
+                <div class="title made  zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="1s" swiper-animate-delay="1s">制作我的孔明灯</div>
+            </div>
+            
+            <!-- page4 -->
+            <div class="swiper-slide contain">
+                <div class="swiper-container swiper-container2">
+                    <div class="swiper-wrapper">
+                        <!-- slide1 -->
+                        <div class="swiper-slide">
+                            <div class="slide_val slide_val_left zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="1s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事
+                            </div>
+                            <div class="slide_name zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">--小明</div>
+                            <img class="page_public page5_1img" src="image/page5/1.png">
+                            <img class="page5_2img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                                src="image/page5/2.png">
+                            <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                                src="image/page/4.png">
+                            <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                                src="image/page/4.png">
+                        </div>
+                        <!-- slide2 -->
+                        <div class="swiper-slide">
+                            <div class="slide_val slide_val_right zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="1s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事
+                            </div>
+                            <div class="slide_name zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">--小明</div>
+                            <img class="page_public page5_1img" src="image/page5/1.png">
+                            <img class="page5_2img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                                src="image/page5/3.png">
+                            <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                                src="image/page/4.png">
+                            <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                                src="image/page/4.png">
+                        </div>
+
+                        <!-- slide3 -->
+                        <div class="swiper-slide">
+                            <div class="slide_val slide_val_left zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="1s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事
+                            </div>
+                            <div class="slide_name zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">--小明</div>
+                            <img class="page_public page5_1img" src="image/page5/1.png">
+                            <img class="page_public page5_2img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                                src="image/page5/4.png">
+                            <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                                src="image/page/4.png">
+                            <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                                src="image/page/4.png">
+                        </div>
+
+                        <!-- slide4 -->
+                        <div class="swiper-slide">
+                            <div class="slide_val slide_val_right zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="1s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事
+                            </div>
+                            <div class="slide_name zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">--小明</div>
+                            <img class="page_public page5_1img" src="image/page5/1.png">
+                            <img class="page_public page5_3img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                                src="image/page5/5.png">
+                            <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                                src="image/page/4.png">
+                            <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                                src="image/page/4.png">
+                        </div>
+
+                        <!-- slide5 -->
+                        <div class="swiper-slide">
+                            <div class="slide_val slide_val_left zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="1s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事
+                            </div>
+                            <div class="slide_name zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">--小明</div>
+                            <img class="page_public page5_1img" src="image/page5/1.png">
+                            <img class="page_public page5_2img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                                src="image/page5/6.png">
+                            <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                                src="image/page/4.png">
+                            <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                                src="image/page/4.png">
+                        </div>
+
+                        <!-- slide6 -->
+                        <div class="swiper-slide">
+                            <div class="slide_val slide_val_right zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="1s">孔明灯又叫天灯，俗称许愿灯，又称祈天灯。是一种古老的中国手工艺品，在古代多做军事
+                            </div>
+                            <div class="slide_name zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">--小明</div>
+                            <img class="page_public page5_1img" src="image/page5/1.png">
+                            <img class="page_public page5_2img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                                src="image/page5/7.png">
+                            <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                                src="image/page/4.png">
+                            <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                                src="image/page/4.png">
+                        </div>
+
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+
+                </div>
+                <div class="title made  zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="1s" swiper-animate-delay="1s"
+                    style="z-index:999">我也要放孔明灯</div>
+            </div>
+
+            <!-- page5 -->
+            <div class="swiper-slide contain stop-swiping">
+                <div class="title p3_title zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">孔明灯选择</div>
+                <div class="bg_title p3bg_title rota ani" swiper-animate-effect="rota" swiper-animate-duration="5s" swiper-animate-delay="3s"></div>
+
+                <img class="page_public page2_1img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                    src="image/page2/1.png">
+                <img class="page_public page2_2imgpu slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/2.png">
+                <img class="page_public page1_3img slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/3.png">
+                <img class="page_public page2_2img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page2/2.png">
+                <img class="page_public page2_3img fadeInUp ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page2/3.png">
+                <img class="page_public page2_4img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page2/4.png">
+                <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page/4.png">
+                <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                    src="image/page/4.png">
+
+                <!-- case1 -->
+                <div class="case1">
+                    <img class="case page3_1_1img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                        src="image/page3/1.png">
+                    <img class="case page3_1_2img zoomInLeft ani" swiper-animate-effect="zoomInLeft" swiper-animate-duration="2s" swiper-animate-delay="4s"
+                        src="image/page3/3.png">
+                    <img class="case page3_1_3img shan ani infinite" swiper-animate-effect="shan" swiper-animate-duration="3s" swiper-animate-delay="6s"
+                        src="image/page3/9.png">
+                </div>
+                <!-- case2 -->
+                <div class="case2">
+                    <img class="case page3_2_1img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                        src="image/page3/1.png">
+                    <img class="case page3_2_2img zoomInRight ani" swiper-animate-effect="zoomInRight" swiper-animate-duration="2s" swiper-animate-delay="4s"
+                        src="image/page3/4.png">
+                    <img class="case page3_2_3img shan ani infinite" swiper-animate-effect="shan" swiper-animate-duration="3s" swiper-animate-delay="7s"
+                        src="image/page3/9.png">
+                </div>
+                <!-- case3 -->
+                <div class="case3">
+                    <img class="case page3_3_1img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                        src="image/page3/5.png">
+                    <img class="case page3_3_2img zoomInLeft ani" swiper-animate-effect="zoomInLeft" swiper-animate-duration="2s" swiper-animate-delay="5s"
+                        src="image/page3/6.png">
+                    <img class="case page3_3_3img shan ani infinite" swiper-animate-effect="shan" swiper-animate-duration="3s" swiper-animate-delay="8s"
+                        src="image/page3/7.png">
+                </div>
+                <!-- case4 -->
+                <div class="case4">
+                    <img class="case page3_4_1img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                        src="image/page3/5.png">
+                    <img class="case page3_4_2img zoomInRight ani" swiper-animate-effect="zoomInRight" swiper-animate-duration="2s" swiper-animate-delay="5s"
+                        src="image/page3/8.png">
+                    <img class="case page3_4_3img shan ani infinite" swiper-animate-effect="shan" swiper-animate-duration="3s" swiper-animate-delay="9s"
+                        src="image/page3/7.png">
+                </div>
+                <!-- case5 -->
+                <div class="case5">
+                    <img class="case page3_5_1img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                        src="image/page3/1.png">
+                    <img class="case page3_5_2img zoomInLeft ani" swiper-animate-effect="zoomInLeft" swiper-animate-duration="2s" swiper-animate-delay="6s"
+                        src="image/page3/10.png">
+                    <img class="case page3_5_3img shan ani infinite" swiper-animate-effect="shan" swiper-animate-duration="3s" swiper-animate-delay="10s"
+                        src="image/page3/9.png">
+                </div>
+                <!-- case6 -->
+                <div class="case6">
+                    <img class="case page3_6_1img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                        src="image/page3/1.png">
+                    <img class="case page3_6_2img zoomInRight ani" swiper-animate-effect="zoomInRight" swiper-animate-duration="2s" swiper-animate-delay="6s"
+                        src="image/page3/11.png">
+                    <img class="case page3_6_3img shan ani infinite" swiper-animate-effect="shan" swiper-animate-duration="3s" swiper-animate-delay="11s"
+                        src="image/page3/9.png">
+                </div>
+            </div>
+            <!-- page6 -->
+            <div class="swiper-slide contain stop-swiping">
+                <div class="title p4_title  zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="2s">祝福海报</div>
+                <div class="bg_title p4bg_title rota ani" swiper-animate-effect="rota" swiper-animate-duration="5s" swiper-animate-delay="3s"></div>
+                <input type="text" class="name  zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="3s"
+                    placeholder=" 请输入姓名">
+                <textarea class="value zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s" swiper-animate-delay="4s"
+                    cols="5" rows="2" placeholder=" 写下你的祝福语(40字以内)" maxlength="40" onkeyup="javascript:setShowLength(this, 40, 'cost_tpl_title_length');" onpaste="javascript:setShowLength(this, 40, 'cost_tpl_title_length');"></textarea>
+                <input type="button" class="btn title p4_1_title zoomInDown ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="2s"
+                    swiper-animate-delay="5s" value="放飞孔明灯">
+                <img class="page_public page2_1img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s"
+                    src="image/page2/1.png">
+                <img class="page_public page2_2imgpu slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/2.png">
+                <img class="page_public page1_3img slideInDown ani" swiper-animate-effect="slideInDown" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/3.png">
+                <img class="page_public page2_2img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page2/2.png">
+                <img class="page_public page2_3img fadeInUp ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page2/3.png">
+                <img class="page_public page2_4img flash ani infinite" swiper-animate-effect="flash" swiper-animate-duration="3s" swiper-animate-delay="1s"
+                    src="image/page2/4.png">
+                <img class="page_public page2_5img zoomInUp ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="2s" swiper-animate-delay="2s"
+                    src="image/page4/1.png">
+                <img class="page_public page2_10_1img bounceIn ani" swiper-animate-effect="bounceIn" swiper-animate-duration="2s" swiper-animate-delay="1s"
+                    src="image/page1/10.png">
+                <img class="page_public page2_10_2img fadeIn ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page1/10.png">
+                <img class="page_public page1_17img star  ani infinite" swiper-animate-effect="star" swiper-animate-duration="3s" swiper-animate-delay="2s"
+                    src="image/page/4.png">
+                <img class="page_public page1_18img star2  ani infinite" swiper-animate-effect="star2" swiper-animate-duration="3s" swiper-animate-delay="4s"
+                    src="image/page/4.png">
+            </div>
+            <!-- page10 -->
+            <!-- <div class="swiper-slide contain" >Slide 9
+        <div>
+          <a data-transition="slideup">
+            <img src="image/sy/up.png" alt="" class="up2img">
+          </a>
+        </div>
+      </div> -->
+
+
+        </div>
+
+        <!-- Swiper JS -->
+        <script src="js/swiper.min.js"></script>
+        <script src="js/jquery.3.3.1.jquery.js"></script>
+        <script src="js/swiper.animate1.0.3.min.js"></script>
+
+        <script>
+
+            // var css = {
+            //       bottom: '170px',
+            //       left: '45px',
+            //   };
+            //   $(".light1").css(css);
+            //改变图片的位置
+            
+            var pic1 = document.getElementById('pic1');
+            var b = -1200;
+            var l = 600;
+            pic1.style.left = l + "px";
+            pic1.style.bottom = b + "px";
+        </script>
+        <!-- 设置滚动条的位置 -->
+        <script type="text/javascript">
+        
+        $(document).ready(function(){
+            var scrollDom = document.getElementById('bgtop');
+            var i = 950;
+            var j = 1050;
+            var k = scrollDom.scrollHeight - i;
+            var l = scrollDom.scrollWidth - j;
+            scrollDom.scrollTop = k;
+            scrollDom.scrollLeft = l;
+            // console.log(scrollDom)
+            // console.log(scrollDom.scrollWidth)
+            // console.log(scrollDom.scrollHeight)
+            // console.log(scrollDom.scrollLeft)
+            // console.log(scrollDom.scrollTop)
+            // console.log(scrollDom.offsetLeft)
+            // console.log(scrollDom.offsetTop)
+        })
+        </script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper1 = new Swiper('.swiper-container1', {
+                 // simulateTouch : false,//禁止鼠标模拟，可以解决在微信者开发工具调试中鼠标swiper滑动不了的问题
+                direction: 'vertical',
+                noSwiping: true,
+                noSwipingClass: 'stop-swiping',
+                effect: 'fade',
+                on: {
+                    init: function () {
+                        swiperAnimateCache(this); //隐藏动画元素 
+                        swiperAnimate(this); //初始化完成开始动画
+                    },
+                    slideChangeTransitionEnd: function () {
+                        swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+                    }
+                }
+            });
+
+            var swiper2 = new Swiper('.swiper-container2', {
+                pagination: {
+                    el: '.swiper-pagination',
+                    dynamicBullets: true,
+                },
+                on: {
+                    init: function () {
+                        swiperAnimateCache(this); //隐藏动画元素 
+                        swiperAnimate(this); //初始化完成开始动画
+                    },
+                    slideChangeTransitionEnd: function () {
+                        swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+                    }
+                }
+            });
+            $(".made").on("click", function () {
+                swiper1.slideTo(4, 10, false)
+            })
+            $(".btn").on("click", function () {
+                swiper1.slideTo(2, 10, false)
+            })
+            $(".go").on("click", function () {
+                swiper1.slideTo(3, 10, false)
+            })
+            $(".case1").on("click", function () {
+                swiper1.slideTo(5, 10, false)
+            })
+            $(".case2").on("click", function () {
+                swiper1.slideTo(5, 10, false)
+            })
+            $(".case3").on("click", function () {
+                swiper1.slideTo(5, 10, false)
+            })
+            $(".case4").on("click", function () {
+                swiper1.slideTo(5, 10, false)
+            })
+            $(".case5").on("click", function () {
+                swiper1.slideTo(5, 10, false)
+            })
+            $(".case6").on("click", function () {
+                swiper1.slideTo(5, 10, false)
+            })
+        </script>
+        <script>
+        function setShowLength(obj, maxlength, id) { 
+           setTimeout(function(){
+           var rem = maxlength - obj.value.length; 
+           },100);
+           }
+        </script>
+</body>
+
+</html>
